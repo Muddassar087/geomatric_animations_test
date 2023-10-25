@@ -35,10 +35,6 @@ class _TabAnimationsState extends State<TabAnimations>
                   padding = customAnimation((notification.metrics.pixels /
                       notification.metrics.maxScrollExtent));
 
-                  imageAlignementValue = customAnimation1(
-                      (notification.metrics.pixels /
-                          notification.metrics.maxScrollExtent));
-
                   setState(() {});
                   return true;
                 },
@@ -59,8 +55,6 @@ class _TabAnimationsState extends State<TabAnimations>
                       child: Container(
                         height: 100,
                         color: Colors.amber,
-                        alignment: Alignment.centerLeft,
-                        margin: EdgeInsets.only(left: padding),
                       ),
                     ),
                     Container(
@@ -77,19 +71,8 @@ class _TabAnimationsState extends State<TabAnimations>
                       ),
                       child: Container(
                         height: 100,
-                        alignment: Alignment.centerLeft,
-                        padding: EdgeInsets.only(left: imageAlignementValue),
                         width: double.infinity,
                         color: Colors.black,
-                        child: Container(
-                          width: 100,
-                          height: 50,
-                          margin: const EdgeInsets.only(left: 20),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: Colors.white,
-                          ),
-                        ),
                       ),
                     ),
                   ],
@@ -111,18 +94,6 @@ class _TabAnimationsState extends State<TabAnimations>
       double adjustedValue =
           (animationValue - 0.5) * 2.0; // Adjust range to 0.0 to 1.0
       return (100 - adjustedValue * 100);
-    }
-  }
-
-  double customAnimation1(double animationValue) {
-    if (animationValue <= 0.5) {
-      // Values increase from 1 to 100
-      return (animationValue * 100) + 1;
-    } else {
-      // Values decrease from 100 to 97
-      double adjustedValue =
-          (animationValue - 0.5) * 2.0; // Adjust range to 0.0 to 1.0
-      return (50 - adjustedValue * 50);
     }
   }
 }
